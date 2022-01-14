@@ -1,3 +1,33 @@
 body {
 	background-color: #d95550;
+	color: #ffffff;
+	font-family:"Arial Rounded MT Bold", Arial, Helvetica, sans-serif;
+}
+
+.header {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.head-img {
+	height: 150px;
+}
+
+.name {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 50px 0 50px;
+}
+
+.name span {
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+.name .name2 {
+	letter-spacing: 15px;
 }
