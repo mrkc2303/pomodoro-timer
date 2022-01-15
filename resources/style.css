@@ -11,8 +11,14 @@ body {
 	align-items: center;
 }
 
+.header a {
+	text-decoration: none;
+	color: #ffffff;
+	display: flex;
+}
+
 .head-img {
-	height: 150px;
+	height: 100px;
 }
 
 .name {
@@ -20,7 +26,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 0 50px 0 50px;
+	margin: 0 50px 0 30px;
 }
 
 .name span {
@@ -30,4 +36,11 @@ body {
 
 .name .name2 {
 	letter-spacing: 15px;
+}
+
+hr {
+	background-color: #ca4e4a;
+	border: none;
+	height: 2px;
+	width: 50%;
 }
