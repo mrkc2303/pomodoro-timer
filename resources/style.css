@@ -67,11 +67,17 @@ hr {
 	border: none;
 	color: #ffffff;
 	padding: 6px;
+	cursor: pointer;
+}
+
+.pomodoro-btn:hover, .short-break-btn:hover, .long-break-btn:hover {
+	background-color: #BC5753;
+	border-radius: 7px;
 }
 
 .selected {
 	background-color: #BC5753;
-	border-radius: 10px;
+	border-radius: 7px;
 	font-weight: 600;
 }
 
@@ -90,4 +96,9 @@ hr {
 	border: none;
 	border-radius: 5px;
 	box-shadow: 0px 5px #CCCCCC;
+}
+
+.start-btn:hover {
+	box-shadow: none;
+	cursor: pointer;
 }
