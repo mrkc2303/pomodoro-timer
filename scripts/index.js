@@ -7,6 +7,7 @@ var seconds = document.querySelector(".seconds");
 var currSelected = 1;
 var timeLeft=0;
 var interval;
+var startStop = 0;
 
 pomodoroBtn.addEventListener("click", function() {
 	minutes.innerHTML = "25";
@@ -38,39 +39,58 @@ longBreakBtn.addEventListener("click", function() {
 	clearInterval(interval);
 });
 
-start.addEventListener("click", function() {
-	clearInterval(interval);
-	timeLeft=0;
+function assign() {
 	if(currSelected == 1) {
-		timeLeft = 25*60 - 1;
+		minutes.innerHTML = "25";
+		seconds.innerHTML = "00";
 	}
 	else if(currSelected == 2) {
-		timeLeft = 30 - 1;
+		minutes.innerHTML = "05";
+		seconds.innerHTML = "00";
 	}
 	else {
-		timeLeft = 15*60 - 1;
+		minutes.innerHTML = "15";
+		seconds.innerHTML = "00";
 	}
-	interval = setInterval(timer,1000);
+}
+
+start.addEventListener("click", function() {
+	if(startStop == 0) {
+		startStop = 1;
+		start.innerHTML = "STOP";
+
+		clearInterval(interval);
+		timeLeft=0;
+		if(currSelected == 1) {
+			timeLeft = 25*60 - 1;
+		}
+		else if(currSelected == 2) {
+			timeLeft = 30 - 1;
+		}
+		else {
+			timeLeft = 15*60 - 1;
+		}
+		interval = setInterval(timer,1000);
+	}
+	else if(startStop == 1) {
+		if (confirm("Are you sure you want to stop the timer?") == true) {
+			clearInterval(interval);
+			startStop = 0;
+			start.innerHTML = "START";
+			assign();
+		}
+	}
+	
 });
 
 function timer() {
 	if(timeLeft == 0){
 	    clearInterval(interval);
-	    alert("TIMER DONE");
-	    var snd = new Audio("./resources/sound.wav");  
-    	snd.play();
-	    if(currSelected == 1) {
-			minutes.innerHTML = "25";
-			seconds.innerHTML = "00";
-		}
-		else if(currSelected == 2) {
-			minutes.innerHTML = "05";
-			seconds.innerHTML = "00";
-		}
-		else {
-			minutes.innerHTML = "15";
-			seconds.innerHTML = "00";
-		}
+	    // var snd = new Audio("./resources/sound.wav");  
+	    // snd.loop = true;
+    	// snd.play();
+	    alert("TIMER ENDED");
+	   	assign();
 	} else {
 		var min=Math.floor(timeLeft/60);
 		var sec=Math.floor(timeLeft%60);
